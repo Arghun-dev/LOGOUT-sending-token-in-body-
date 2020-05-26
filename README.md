@@ -2,6 +2,9 @@
 
 ### How to send just token in body in POST request in logout method:
 
+
+ACTION.js
+
 ```
 // LOGOUT USER
 export const logout = (token) => (dispatch, getState) => {
@@ -39,4 +42,15 @@ export const tokenConfig = (getState) => {
 
   return config;
 };
+```
+
+
+REDUCER.js
+
+```
+case LOGOUT_SUCCESS:
+   localStorage.removeItem("token");
+   return {
+     ...action.payload
+   }
 ```
